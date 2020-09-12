@@ -2,18 +2,16 @@ const http = require('http');
 const express = require('express');
 const path = require('path');
 const app = express();
-
-
 app.use(express.json());
 app.use(express.static("express"));
 app.use(express.static('public'));
 // default URL for website
 app.use('/', function(req,res){
-    res.sendFile(path.join(__dirname+'/express/pages/home.html'));
+    res.sendFile(path.join(__dirname+'/express/pages/about.html'));
     //__dirname : It will resolve to your project folder.
   });
-app.use('/about.html', function(req,res,html){
-    res.sendFile(path.join(__dirname+'/express/pages/about.html'));
+app.use('/about', function(req,res,html){
+    res.sendFile(express.static(__dirname+'/pages/about.html'));
     //__dirname : It will resolve to your project folder.
   });
 
