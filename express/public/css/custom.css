@@ -1,0 +1,132 @@
+body, html {
+    height: 100%;
+    background-color: #fffeea;
+    padding-top: 2rem;
+}
+
+/* Hero image + TEXT */
+
+
+.hero-image {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+ background-image:  url("../photos/hero-photo.jpg");
+
+ /* Set a specific height */
+ height: 100%;
+
+ /* Position and center the image to scale nicely on all screens */
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+ position: relative;
+
+}
+
+.hero-text{
+
+  font-family: 'monospace',"Monofur", "Courier New";
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(70%, 350%);
+  border: 1px solid white;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: small;
+  color: white;
+  text-transform: lowercase;
+
+}
+/* parent classes*/
+
+.case{
+  display: flex;
+  flex-wrap: wrap;
+
+
+}
+/* image grid*/
+
+.row.image{
+    display: flex;
+    flex: wrap;
+    padding:0 4px;
+}
+
+.imageColumn{
+  flex-grow: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.imageColumn img{
+  margin-top:8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+
+/* Gallery CSS*/
+
+.case.photo-gallery{
+
+  justify-content: center;
+
+}
+
+.photo-frame{
+  border:5px solid #fffeea;
+  margin: 20px;
+  margin-top: 2rem;
+  border-radius: 5px;
+}
+
+.logo{
+height:auto;
+width:30px;
+}
+
+.gallery{
+  width: 100%;
+  height: auto;
+}
+
+.gallery-backdrop{
+  margin-top: 100px;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 3rem;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 5px;
+
+}
+
+/*navbar*/
+
+.navbar-custom{
+  background-color: #fffeea;
+}
+
+/* profile picture */
+.case.profile-pic{
+  justify-content: left;
+}
