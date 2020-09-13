@@ -3,20 +3,18 @@
 
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Peter Lin's Portfolio</title>
-
+  <!-- **DO THIS**: -->
+  <!--   Replace SDK_VERSION_NUMBER with the current SDK version number -->
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.751.0.js"></script>
+  <script src="../public/js/PhotoViewer.js"></script>
   <!-- Bootstrap core CSS -->
-  <link href="custom.css" rel="stylesheet" type="text/css">
-  <link href="public/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
-  <link href="public/css/custom.css" rel="stylesheet" type="text/css">
+  <link href="../../../public/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="../../../public/css/custom.css" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="public/js/custom.js"></script>
+  <script src="../../../public/js/custom.js"></script>
 
+  <script src="../../../public/js/react-photo-gallery.js"></script>
+  <script>listAlbums();</script>
 </head>
 
 <!-- Navigation -->
@@ -54,5 +52,14 @@
   </div>
 </nav>
 
+
+<!DOCTYPE html>
+  <body>
+    <h1>Photo Album Viewer</h1>
+    <div id="viewer" />
+
+
+
+</body>
 
 </html>
