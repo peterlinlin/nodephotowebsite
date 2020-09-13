@@ -136,49 +136,44 @@ function viewMainAlbum(albumName) {
     var href = this.request.httpRequest.endpoint.href;
     var bucketUrl = href + albumBucketName + '/';
 
+
+    //gets photo from s3
     var photos = data.Contents.map(function(photo) {
       var photoKey = photo.Key;
       var photoUrl = bucketUrl + encodeURIComponent(photoKey);
       return getHtml([
-        '<span>',
           "<div class='col-sm-4'>",
             '<br/>',
             "<figure class='photo-frame'>",
             "<img src=' " + photoUrl + "' class='gallery'/>",
             "</figure>",
           '</div>',
-          '<div>',
-            '<span>',
-              photoKey.replace(albumPhotosKey, ''),
-            '</span>',
-          '</div>',
-        '</span>',
       ]);
     });
 
 
-
+    //if there are photos in the album, display first message, otherwise display second message
     var message = photos.length ?
       '<p>The following photos are present.</p>' :
       '<p>There are no photos in this album.</p>';
+
+      //template for how website is going to be formated
+
     var htmlTemplate = [
-      '<div>',
-        '<button onclick="listAlbums()">',
-          'Back To Albums',
-        '</button>',
-      '</div>',
+//button to go back
 
 
-      '<h2>',
-        'Album: ' + albumName,
-      '</h2>',
-      message,
-      '<div>',
-        getHtml(photos),
+      //photo
+      '<div class= "col-lg-12">',
+        '<div class="gallery-backdrop">',
+          '<div id = "gallery" class="case photo-gallery">',
+            getHtml(photos),
+          '</div>',
+        '</div>',
       '</div>',
-      '<h2>',
-        'End of Album: ' + albumName,
-      '</h2>',
+
+  //end of album and button to go back to list of albums
+
       '<div>',
         '<button onclick="listAlbums()">',
           'Back To Albums',

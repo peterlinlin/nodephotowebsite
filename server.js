@@ -46,6 +46,10 @@ app.get('/bucketgallery', (req, res) => {
     res.sendFile(path.join(__dirname+'/express/pages/bucketgallery.html'));
 });
 
+app.get('/tests', (req, res) => {
+    res.sendFile(path.join(__dirname+'/express/pages/tests.html'));
+});
+
 const server = http.createServer(app);
 const port = 3000;
 server.listen(port);
