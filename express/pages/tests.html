@@ -5,10 +5,21 @@
     <!--   Replace SDK_VERSION_NUMBER with the current SDK version number -->
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.751.0.js"></script>
     <script src="../public/js/PhotoViewer.js"></script>
-    <script>listAlbums();</script>
+    <script src="../public/js/codclips.js"></script>
+
   </head>
   <body>
-    <h1>Photo Album Viewer</h1>
-    <div id="viewer" />
+    <script src='https://unpkg.com/react-player/dist/ReactPlayer.standalone.js'></script>
+    <script>
+      const container = document.getElementById('container')
+      const url = 'https://www.youtube.com/watch?v=d46Azg3Pm4c'
+
+      renderReactPlayer(container, { url, playing: true })
+
+      function pausePlayer () {
+        renderReactPlayer(container, { url, playing: false })
+      }
+    </script> 
+
   </body>
 </html>

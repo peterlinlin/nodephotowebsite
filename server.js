@@ -1,3 +1,4 @@
+const serverless = require('serverless-http');
 const http = require('http');
 const express = require('express');
 const path = require('path');
@@ -50,7 +51,12 @@ app.get('/tests', (req, res) => {
     res.sendFile(path.join(__dirname+'/express/pages/tests.html'));
 });
 
-const server = http.createServer(app);
-const port = 3000;
-server.listen(port);
-console.debug('Server listening on port ' + port);
+app.get('/codclips', (req, res) => {
+    res.sendFile(path.join(__dirname+'/express/pages/codclips.html'));
+});
+
+//const server = http.createServer(app);
+//const port = 3000;
+//server.listen(port);
+//console.debug('Server listening on port ' + port);
+module.exports.handler = serverless(app);
