@@ -1,9 +1,7 @@
 # nodephotowebsite
+This website is a continuation of: https://github.com/peterlinlin/photowebsite
 
-new website that i put on node.js
+This build uses Express and Node to make a more dynamic website. 
+Currently, for the photo gallery, it uses Amazon s3  buckets to host images.
 
-for earlier version that only used html go to
-
-https://github.com/peterlinlin/photowebsite
-
-I am currently trying to migrate this to AWS
+I am currently trying to migrate this to AWS.
