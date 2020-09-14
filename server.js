@@ -5,18 +5,6 @@ const app = express();
 app.use(express.json());
 app.use(express.static("express"));
 app.use(express.static('public'));
-// default URL for website
-/*
-app.use('/', function(req,res){
-    res.sendFile(path.join(__dirname+'/express/pages/home.html'));
-    //__dirname : It will resolve to your project folder.
-  });
-
-app.use('./about', function(req,res){
-    res.sendFile(express.static(__dirname+'/express/pages/about.html'));
-    //__dirname : It will resolve to your project folder.
-  });
-  */
 
   app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname+'/express/pages/home.html'));
