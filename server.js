@@ -39,7 +39,7 @@ app.get('/contactme', (req, res) => {
 });
 
 app.get('/gallery', (req, res) => {
-    res.sendFile(path.join(__dirname+'/express/pages/gallery.html'));
+    res.sendFile(path.join(__dirname+'/express/pages/tests.html'));
 });
 
 app.get('/bucketgallery', (req, res) => {
@@ -48,6 +48,10 @@ app.get('/bucketgallery', (req, res) => {
 
 app.get('/tests', (req, res) => {
     res.sendFile(path.join(__dirname+'/express/pages/tests.html'));
+});
+
+app.get('/codclips', (req, res) => {
+    res.sendFile(path.join(__dirname+'/express/pages/codclips.html'));
 });
 
 const server = http.createServer(app);

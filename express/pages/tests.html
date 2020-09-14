@@ -1,14 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- **DO THIS**: -->
-    <!--   Replace SDK_VERSION_NUMBER with the current SDK version number -->
-    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.751.0.js"></script>
-    <script src="../public/js/PhotoViewer.js"></script>
-    <script>listAlbums();</script>
-  </head>
+<head>
+
+  <!-- **DO THIS**: -->
+  <!--   Replace SDK_VERSION_NUMBER with the current SDK version number -->
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.751.0.js"></script>
+  <script src="../public/js/PhotoViewer.js"></script>
+  <!-- Bootstrap core CSS -->
+  <link href="../../../public/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="../../../public/css/custom.css" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-custom" style="border-bottom:1px solid black;">
+  <div class="container">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="../home">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="gallery">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="bananas">Bananas?</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contactme">Contact Me</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
   <body>
-    <h1>Photo Album Viewer</h1>
     <div id="viewer" />
+    <script>listAlbums();</script>
   </body>
 </html>

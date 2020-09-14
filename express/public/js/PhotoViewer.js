@@ -78,41 +78,23 @@ function viewAlbum(albumName) {
       var photoKey = photo.Key;
       var photoUrl = bucketUrl + encodeURIComponent(photoKey);
       return getHtml([
-        '<span>',
-          "<div class='col-sm-4'>",
-            '<br/>',
-            "<figure class='photo-frame'>",
-            "<img src=' " + photoUrl + "' class='gallery'/>",
-            "</figure>",
-          '</div>',
+
+
           '<div>',
-            '<span>',
-              photoKey.replace(albumPhotosKey, ''),
-            '</span>',
+            '<img ;" src="' + photoUrl + '"/>',
           '</div>',
-        '</span>',
+          '</br>',
+
       ]);
     });
     var message = photos.length ?
       '<p>The following photos are present.</p>' :
       '<p>There are no photos in this album.</p>';
     var htmlTemplate = [
-      '<div>',
-        '<button onclick="listAlbums()">',
-          'Back To Albums',
-        '</button>',
-      '</div>',
-      '<h2>',
-        'Album: ' + albumName,
-      '</h2>',
-      message,
+      
       '<div>',
         getHtml(photos),
       '</div>',
-      '<h2>',
-        'End of Album: ' + albumName,
-      '</h2>',
-      '<div>',
         '<button onclick="listAlbums()">',
           'Back To Albums',
         '</button>',
@@ -143,7 +125,6 @@ function viewMainAlbum(albumName) {
       var photoUrl = bucketUrl + encodeURIComponent(photoKey);
       return getHtml([
           "<div class='col-sm-4'>",
-            '<br/>',
             "<figure class='photo-frame'>",
             "<img src=' " + photoUrl + "' class='gallery'/>",
             "</figure>",
