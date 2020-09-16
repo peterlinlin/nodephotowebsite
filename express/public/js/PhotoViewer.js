@@ -39,24 +39,25 @@ function listAlbums() {
         var prefix = commonPrefix.Prefix;
         var albumName = decodeURIComponent(prefix.replace('/', ''));
         return getHtml([
-          '<li>',
-            '<button style="margin:5px;" onclick="viewAlbum(\'' + albumName + '\')">',
+          '<div class = "btn-group" style = "padding: 20px">',
+            '<button class="btn btn-sm" style="margin-top:20px; border:2px solid #000000;" onclick="viewAlbum(\'' + albumName + '\')">',
               albumName,
             '</button>',
-          '</li>'
+            '</div>'
         ]);
       });
       var message = albums.length ?
         getHtml([
-          '<p>Click on an album name to view it.</p>',
+          '<p style = "text-align: center;">Click on an album name to view it.</p>',
         ]) :
-        '<p>You do not have any albums. Please Create album.';
+        '<p style = "text-align: center;">You do not have any albums. Please Create album.';
       var htmlTemplate = [
-        '<h2>Albums</h2>',
+        '<h2 style = "text-align: center; padding: 25px" >Albums</h2>',
         message,
-        '<ul>',
+        '<div style = "margin: 0; position: absolute; left: 50%;  -ms-transform: translate(-50%, 0%) ;  transform: translate(-50%, 0%);">',
           getHtml(albums),
-        '</ul>',
+
+          '</div>'
       ]
       document.getElementById('viewer').innerHTML = getHtml(htmlTemplate);
     }
@@ -112,11 +113,11 @@ function viewAlbum(albumName) {
 
   //end of album and button to go back to list of albums
 
-      '<div>',
-        '<button onclick="listAlbums()">',
-          'Back To Albums',
-        '</button>',
-      '</div>',
+  '<div class = "col-sm-5" style=  "margin: auto; padding-bottom: 10px; width: 60%; transform: translate(-50%, -50%); ">',
+    '<button type="button" onclick="listAlbums()" class="btn btn-sm" style="margin-top:20px; border:2px solid #000000;">',
+      'Back To Albums',
+    '</button>',
+  '</div>',
     ]
     document.getElementById('viewer').innerHTML = getHtml(htmlTemplate);
     document.getElementsByTagName('div')[6].setAttribute('style', 'display:none !important;');
@@ -171,11 +172,10 @@ function viewMainAlbum(albumName) {
           '</div>',
         '</div>',
       '</div>',
-
   //end of album and button to go back to list of albums
 
-      '<div>',
-        '<button onclick="listAlbums()">',
+      '<div class = "col-sm-5" style=  "margin: auto; padding-bottom: 10px; width: 60%; transform: translate(-50%, -50%); ">',
+        '<button type="button" onclick="listAlbums()" class="btn btn-sm" style="margin-top:20px; border:2px solid #000000;">',
           'Back To Albums',
         '</button>',
       '</div>',
