@@ -143,7 +143,7 @@ function viewMainAlbum(albumName) {
       var photoUrl = bucketUrl + encodeURIComponent(photoKey);
       return getHtml([
           "<div class='col-sm-4'>",
-            '<br/>',
+
             "<figure class='photo-frame'>",
             "<img src=' " + photoUrl + "' class='gallery'/>",
             "</figure>",
@@ -181,6 +181,6 @@ function viewMainAlbum(albumName) {
       '</div>',
     ]
     document.getElementById('viewer').innerHTML = getHtml(htmlTemplate);
-    document.getElementsByTagName('img')[0].setAttribute('style', 'display:none;');
+    document.getElementsByTagName('div')[6].setAttribute('style', 'display:none !important;');
   });
 }
