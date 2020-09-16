@@ -27,7 +27,7 @@ app.get('/contactme', (req, res) => {
 });
 
 app.get('/gallery', (req, res) => {
-    res.sendFile(path.join(__dirname+'/express/pages/gallery.html'));
+    res.sendFile(path.join(__dirname+'/express/pages/bucketgallery.html'));
 });
 
 app.get('/bucketgallery', (req, res) => {
