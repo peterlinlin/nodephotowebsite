@@ -74,68 +74,6 @@ function viewAlbum(albumName) {
     var href = this.request.httpRequest.endpoint.href;
     var bucketUrl = href + albumBucketName + '/';
 
-    var photos = data.Contents.map(function(photo) {
-      var photoKey = photo.Key;
-      var photoUrl = bucketUrl + encodeURIComponent(photoKey);
-      return getHtml([
-        '<span>',
-          "<div class='col-sm-4'>",
-            '<br/>',
-            "<figure class='photo-frame'>",
-            "<img src=' " + photoUrl + "' class='gallery'/>",
-            "</figure>",
-          '</div>',
-          '<div>',
-            '<span>',
-              photoKey.replace(albumPhotosKey, ''),
-            '</span>',
-          '</div>',
-        '</span>',
-      ]);
-    });
-    var message = photos.length ?
-      '<p>The following photos are present.</p>' :
-      '<p>There are no photos in this album.</p>';
-    var htmlTemplate = [
-      '<div>',
-        '<button onclick="listAlbums()">',
-          'Back To Albums',
-        '</button>',
-      '</div>',
-      '<h2>',
-        'Album: ' + albumName,
-      '</h2>',
-      message,
-      '<div>',
-        getHtml(photos),
-      '</div>',
-      '<h2>',
-        'End of Album: ' + albumName,
-      '</h2>',
-      '<div>',
-        '<button onclick="listAlbums()">',
-          'Back To Albums',
-        '</button>',
-      '</div>',
-    ]
-    document.getElementById('viewer').innerHTML = getHtml(htmlTemplate);
-    document.getElementsByTagName('img')[0].setAttribute('style', 'display:none;');
-  });
-}
-
-
-
-function viewMainAlbum(albumName) {
-  albumName = 'main';
-  var albumPhotosKey = encodeURIComponent(albumName) + '/';
-  s3.listObjects({Prefix: albumPhotosKey}, function(err, data) {
-    if (err) {
-      return alert('There was an error viewing your album: ' + err.message);
-    }
-    // 'this' references the AWS.Response instance that represents the response
-    var href = this.request.httpRequest.endpoint.href;
-    var bucketUrl = href + albumBucketName + '/';
-
 
     //gets photo from s3
     var photos = data.Contents.map(function(photo) {
@@ -143,7 +81,7 @@ function viewMainAlbum(albumName) {
       var photoUrl = bucketUrl + encodeURIComponent(photoKey);
       return getHtml([
           "<div class='col-sm-4'>",
-            '<br/>',
+
             "<figure class='photo-frame'>",
             "<img src=' " + photoUrl + "' class='gallery'/>",
             "</figure>",
@@ -181,6 +119,68 @@ function viewMainAlbum(albumName) {
       '</div>',
     ]
     document.getElementById('viewer').innerHTML = getHtml(htmlTemplate);
-    document.getElementsByTagName('img')[0].setAttribute('style', 'display:none;');
+    document.getElementsByTagName('div')[6].setAttribute('style', 'display:none !important;');
+  });
+}
+
+
+
+function viewMainAlbum(albumName) {
+  albumName = 'Favorites';
+  var albumPhotosKey = encodeURIComponent(albumName) + '/';
+  s3.listObjects({Prefix: albumPhotosKey}, function(err, data) {
+    if (err) {
+      return alert('There was an error viewing your album: ' + err.message);
+    }
+    // 'this' references the AWS.Response instance that represents the response
+    var href = this.request.httpRequest.endpoint.href;
+    var bucketUrl = href + albumBucketName + '/';
+
+
+    //gets photo from s3
+    var photos = data.Contents.map(function(photo) {
+      var photoKey = photo.Key;
+      var photoUrl = bucketUrl + encodeURIComponent(photoKey);
+      return getHtml([
+          "<div class='col-sm-4'>",
+
+            "<figure class='photo-frame'>",
+            "<img src=' " + photoUrl + "' class='gallery'/>",
+            "</figure>",
+          '</div>',
+      ]);
+    });
+
+
+    //if there are photos in the album, display first message, otherwise display second message
+    var message = photos.length ?
+      '<p>The following photos are present.</p>' :
+      '<p>There are no photos in this album.</p>';
+
+      //template for how website is going to be formated
+
+    var htmlTemplate = [
+//button to go back
+
+
+      //photo
+      '<div class= "col-lg-12">',
+        '<div class="gallery-backdrop">',
+          '<div id = "gallery" class="case photo-gallery">',
+            getHtml(photos),
+          '</div>',
+        '</div>',
+      '</div>',
+
+  //end of album and button to go back to list of albums
+
+      '<div>',
+        '<button onclick="listAlbums()">',
+          'Back To Albums',
+        '</button>',
+      '</div>',
+    ]
+    document.getElementById('viewer').innerHTML = getHtml(htmlTemplate);
+    document.getElementsByTagName('div')[6].setAttribute('style', 'display:none !important;');
   });
 }
