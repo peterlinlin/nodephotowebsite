@@ -43,6 +43,6 @@ app.get('/gallery', (req, res) => {
 });
 
 const server = http.createServer(app);
-const port = 3000;
+const port = 80;
 server.listen(port);
 console.debug('Server listening on port ' + port);
