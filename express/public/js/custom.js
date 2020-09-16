@@ -6,7 +6,7 @@ function loadTest(){
   for(var i = 0; i < 3; i++){
     $( "<div class='col-sm-4'>" +
     "<figure class='photo-frame'>" +
-    "<img src=' ../" +
+    "<img src=' ../public/" +
     folder +
     image +
     "' class='gallery'" +
